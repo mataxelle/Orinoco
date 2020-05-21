@@ -1,4 +1,32 @@
 body {
   margin: 0; }
 
+header {
+  background-color: #dba3db; }
+  header .head-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 30px; }
+
+footer {
+  display: flex;
+  justify-content: space-around;
+  background-color: #dba3db; }
+  footer .pied {
+    display: block; }
+
+a {
+  text-decoration: none;
+  color: black; }
+
+h2 {
+  text-align: center; }
+
+.produit {
+  margin: 50px; }
+
+img {
+  border-radius: 20px; }
+
 /*# sourceMappingURL=style.css.map */

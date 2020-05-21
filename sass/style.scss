@@ -1,3 +1,39 @@
 body {
     margin: 0;
 }
+
+header {
+    background-color: rgb(219, 163, 219);
+    .head-section {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 30px;
+    }
+}
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(219, 163, 219);
+    .pied {
+        display: block;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+h2 {
+    text-align: center;
+}
+
+.produit {
+    margin: 50px;
+}
+
+img {
+    border-radius: 20px;
+}

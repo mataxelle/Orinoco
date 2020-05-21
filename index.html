@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +8,105 @@
     <meta name="description" content="Entrez dans le monde d'Orinico et découvrez un grand choix d'ours en peluche faits à la main,
      pour les petits et les grands.">
 
-     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+
+    <div>
+
+        <header>
+            <div class="head-section">
+                <h1>Orinoco Teddy</h1>
+                <div>
+                    <div class="compte">
+                        <a href="#">Compte</a>
+                        <div class="compte__style">
+                            <a href="#">Inscription</a> |
+                            <a href="#">Connextion</a>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <a href="#">Panier</a>
+                </div>
+            </div>
+        </header>
+
+        <article>
+
+            <h2>Ours en peluche Teddy</h2>
+
+            <article class="produit">
+                <h3>Teddy 1</h3>
+                <a href="#">
+                    <img src="images/teddy_1.jpg" alt="Ours en peluche Teddy brun foncé poilu">
+                </a>
+            </article>
+
+            <article class="produit">
+                <h3>Teddy 2</h3>
+                <a href="#">
+                    <img src="images/teddy_2.jpg" alt="Petit ours en peluche Teddy beige simple">
+                </a>
+            </article>
+
+            <article class="produit">
+                <h3>Teddy 3</h3>
+                <a href="#">
+                    <img src="images/teddy_3.jpg" alt="Deux ours en peluche Teddy brun avec coeur rouge">
+                </a>
+            </article>
+
+            <article class="produit">
+                <h3>Teddy 4</h3>
+                <a href="#">
+                    <img src="images/teddy_4.jpg" alt="Ours en peluche Teddy brun avec t-shirt bleu">
+                </a>
+            </article>
+
+            <article class="produit">
+                <h3>Teddy 5</h3>
+                <a href="#">
+                    <img src="images/teddy_5.jpg" alt="Ours en peluche Teddy beige tourné de dos">
+                </a>
+            </article>
+        </article>
+
+        <footer>
+            <div class="pied">
+                <p>Aide</p>
+                <ul>
+                    <li>Contacter le Service Client</li>
+                    <li>Comment passer commande</li>
+                    <li>FAQ</li>
+                </ul>
+            </div>
+            <div class="pied">
+                <p>Nos Services Orinico</p>
+                <ul>
+                    <li>Satisfait ou Remboursé</li>
+                    <li>Livraison</li>
+                    <li>Paiement Sécurisé</li>
+                </ul>
+            </div>
+            <div class="pied">
+                <p>Nos garanties</p>
+                <ul>
+                    <li>Mentions Légales</li>
+                    <li>Conditions générales de vente</li>
+                </ul>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="server.js"></script>
+    <script src="app.js"></script>
+    <script src="./controllers/teddy.js"></script>
+    <script src="./models/Teddy.js"></script>
+    <script src="./routes/teddy.js"></script>
+
 </body>
+
 </html>
