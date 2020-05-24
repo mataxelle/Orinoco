@@ -1,14 +1,117 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teddy-1</title>
     <meta name="description" content="Notre fait à la main peluche Teddy-1">
 
-    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/4c2b4e375e.js" crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Unna&family=Yellowtail&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
 </head>
+
 <body>
-    
+
+    <div>
+
+        <header>
+            <div class="head-section">
+                <h1><a href="../index.html">Orinoco Teddy</a></h1>
+                <div>
+                    <div class="compte">
+                        <div class="compte__icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="compte__user">
+                            <a href="#">Compte</a>
+                            <div class="compte__user--style">
+                                <a href="#">Inscription</a> |
+                                <a href="#">Connextion</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <a href="../panier.html"><i class="fas fa-shopping-basket"></i> Panier</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-produit__ours">
+            <div class="bloc1">
+                <div class="page-produit__ours--1">
+                    <a href="../images/teddy_1_large.jpg">
+                        <img src="../images/teddy_1.jpg" alt="Ours en peluche Teddy brun foncé poilu">
+                    </a>
+                </div>
+                <div class="page-produit__ours--2">
+                    <div class="details-page">
+                        <p class="ours__nom">Nounours Booly Holly</p>
+                        <p class="prix">Prix : 19.99€</P>
+                        <form method="POST" action="" id="">
+                            <div>
+                                <div class="selection" >
+                                    <label for="color">Choisissez une couleur : </label>
+                                    <select name="colors" id="color">
+                                        <option value="">--couleur--</option>
+                                        <option value="brun">Brun</option>
+                                        <option value="beige">Beige</option>
+                                        <option value="blanc-cassé">Blanc cassé</option>
+                                        <option value="noir">noir</option>
+                                    </select>
+                                </div>
+                                <div class="selection">
+                                    <button type="submit" name="panier" id="ajout-panier">
+                                        Ajouter au panier
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="bloc2">
+                <div>
+                    <p class="description"><strong>Description</strong> : Nounours Booly Holly est une peluche à adopter
+                        sans réfléchir. Avec son air sérieux, mais tout doux,
+                        cet adorable ours en peluche deviendra le meilleur ami de votre enfant ou peut être aussi le
+                        votre.
+                        Grâce à sa prise en main facile, votre enfant l'emportera partout avec lui.<br><br>
+                        N'hésitez pas et offrez le à votre enfant.</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="pied">
+                <p>Aide</p>
+                <ul>
+                    <li>Contacter le Service Client</li>
+                    <li>Comment passer commande</li>
+                    <li>FAQ</li>
+                </ul>
+            </div>
+            <div class="pied">
+                <p>Nos Services Orinico</p>
+                <ul>
+                    <li>Satisfait ou Remboursé</li>
+                    <li>Livraison</li>
+                    <li>Paiement Sécurisé</li>
+                </ul>
+            </div>
+            <div class="pied">
+                <p>Nos garanties</p>
+                <ul>
+                    <li>Mentions Légales</li>
+                    <li>Conditions générales de vente</li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+
 </body>
+
 </html>

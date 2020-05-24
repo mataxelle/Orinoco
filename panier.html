@@ -1,13 +1,105 @@
 <!DOCTYPE html>
 <html lang="">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panier</title>
 
+    <script src="https://kit.fontawesome.com/4c2b4e375e.js" crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Unna&family=Yellowtail&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+
+    <div>
+
+        <header>
+            <div class="head-section">
+                <h1><a href="index.html">Orinoco Teddy</a></h1>
+                <div>
+                    <div class="compte">
+                        <div class="compte__icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="compte__user">
+                            <a href="#">Compte</a>
+                            <div class="compte__user--style">
+                                <a href="#">Inscription</a> |
+                                <a href="#">Connextion</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <a href="panier.html"><i class="fas fa-shopping-basket"></i> Panier</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="panier">
+            <div>
+                <h2>Votre panier</h2>
+            </div>
+
+            <div class="formulaire">
+                <div>
+                    <div>
+                        <label for="quantity">Quantité</label>
+                        <input type="number" id="quantity" value="1" min="0" max="10">
+                    </div>
+                </div>
+
+                <div class="formulaire__fond">
+                    <form method="" action="" id="">
+                        <div class="selection-validation">
+                            <label for="nom">Nom</label>
+                            <input type="text" id="nom" placeholder="Nom">
+                            <label for="prénom">Prénom</label>
+                            <input type="text" id="prénom" placeholder="Prénom">
+                            <label for="adresse">Adresse</label>
+                            <input type="text" id="adresse" placeholder="Adresse">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" placeholder="E-mail">
+                            <button type="submit" name="validation" id="Valider">
+                                Valider
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="pied">
+                <p>Aide</p>
+                <ul>
+                    <li>Contacter le Service Client</li>
+                    <li>Comment passer commande</li>
+                    <li>FAQ</li>
+                </ul>
+            </div>
+            <div class="pied">
+                <p>Nos Services Orinico</p>
+                <ul>
+                    <li>Satisfait ou Remboursé</li>
+                    <li>Livraison</li>
+                    <li>Paiement Sécurisé</li>
+                </ul>
+            </div>
+            <div class="pied">
+                <p>Nos garanties</p>
+                <ul>
+                    <li>Mentions Légales</li>
+                    <li>Conditions générales de vente</li>
+                </ul>
+            </div>
+        </footer>
+
+    </div>
+
 </body>
+
 </html>

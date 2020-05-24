@@ -1,0 +1,49 @@
+@mixin head-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 30px;
+}
+
+@mixin foot {
+    display: flex;
+    justify-content: space-around;
+    background-color: $color-primary;
+}
+
+@mixin produit__ours--fond {
+    width: 800px;
+    height: 300px;
+    border-radius: 20px;
+    display: flex;
+    background-color: $color-secondary;
+}
+
+@mixin produit__ours--2 {
+    background-color: $color-tertiary;
+    width: 40%;
+    margin: 20px 20px 20px 0px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+
+/* Page produit début*/
+
+@mixin page-produit {
+    background-color: $color-secondary;
+    width: 900px;
+    height: 900px;
+    margin: 100px auto;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin page-produit__ours--2 {
+    background-color: $color-tertiary;
+    width: 50%;
+    margin: 20px 20px 24px 0px;
+    border-radius: 10px;
+    text-align: center;
+}

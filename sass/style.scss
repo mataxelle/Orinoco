@@ -1,39 +1,186 @@
+@import "directories/utils/variables";
+@import "directories/utils/mixin";
+
 body {
-    margin: 0;
+    margin: 0px;
+    width: auto;
+}
+
+#contenu {
+    display: flex;
+    flex-direction: column;
 }
 
 header {
-    background-color: rgb(219, 163, 219);
+    background-color: $color-primary;
     .head-section {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        padding: 30px;
+        @include head-section;
     }
 }
 
-footer {
+.compte {
     display: flex;
-    justify-content: space-around;
-    background-color: rgb(219, 163, 219);
+    align-items: flex-end;
+    &__icon, &__user {
+        margin: 10px;
+    }
+}
+
+i {
+    font-size: 30px;
+}
+
+h1 a {
+    font-family: 'Yellowtail', cursive;
+}
+
+footer {
+    @include foot;
     .pied {
         display: block;
     }
 }
 
 a {
+    font-family: 'Unna', serif;
     text-decoration: none;
     color: black;
 }
+
+.metier {
+    text-align: center;
+}
+
+.produit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h2 {
+        text-align: center;
+        font-family: 'Unna', serif;
+    }
+    h3 {
+        font-family: 'Unna', serif;
+    }
+    &__ours {
+        margin: 50px;
+        &--fond {
+            @include produit__ours--fond;
+        }
+        &--1 {
+            width: 60%;
+        }
+        &--2 {
+            @include produit__ours--2;
+        }
+    }
+}
+
+.details {
+    margin: 85px 20px;
+}
+
+.ours__nom, .prix {
+    font-size: x-large;
+}
+
+P {
+    font-family: 'Unna', serif;
+}
+
+img {
+    border-radius: 10px;
+    margin: 20px;
+}
+
+/* Page produit début */
+
+.page-produit__ours {
+    @include page-produit;
+    &--1 {
+        width: 50%;
+    }
+    &--2 {
+        @include page-produit__ours--2;
+    }
+}
+
+.bloc1 {
+    display: flex;
+}
+
+.bloc2 {
+    width: auto;
+    background-color: $color-tertiary;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.details-page {
+    padding: 10px;
+}
+
+.selection {
+    display: flex;
+    flex-direction: column;
+    margin : 20px 120px;
+}
+
+button {
+    background-color: $color-primary;
+    padding: 6px;
+    border-radius: 4px;
+    cursor: pointer;
+    &:hover {
+        background-color: darken($color: $color-primary, $amount: 10);
+    }
+}
+
+.description {
+    margin: 20px;
+}
+
+/* Page panier début*/
 
 h2 {
     text-align: center;
 }
 
-.produit {
-    margin: 50px;
+.formulaire {
+    background-color: $color-secondary;
+    padding: 10px 150px;
+    margin: 100px 300px;
+    width: auto;
 }
 
-img {
-    border-radius: 20px;
+.formulaire__fond {
+    width: auto;
+    margin: 50px auto;
+    border-radius: 5px;
+    background-color: $color-tertiary;
+    padding: 20px;
+}
+
+.selection-validation input[type=text],
+.selection-validation input[type=email] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+  
+.selection-validation button {
+    width: 100%;
+    background-color: $color-primary;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    &:hover {
+        background-color: darken($color: $color-primary, $amount: 10);
+    }
 }
