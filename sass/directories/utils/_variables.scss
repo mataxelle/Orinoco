@@ -2,3 +2,12 @@
 $color-primary:#e4ad46 ;
 $color-secondary: #ad670a;
 $color-tertiary:rgb(252, 245, 217);
+
+/*Maps avec une liste pour les media queries*/
+$breakpoints: (
+    mobile: 479px,
+    mobile-l: 559px,
+    tablet-s: 699px,
+    tablet: 1029px,
+    computer-s: 1269px
+);

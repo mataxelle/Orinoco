@@ -142,27 +142,72 @@ button {
 
 /* Page panier début*/
 
+.panier {
+    width: auto;
+}
+
 h2 {
     text-align: center;
 }
 
+.commande {
+    background-color: $color-secondary;
+    width: 60%;
+    margin: auto;
+    padding: 30px;
+    border-radius: 20px;
+    @include screen-size(tablet-s) {
+       width: auto;
+       margin: 30px;
+    }
+}
+
+table {
+    width: auto;
+    background-color: $color-tertiary;
+    border-collapse: collapse;
+    border-radius: 10px;
+}
+
+table {
+    margin: auto;
+}
+
+td, th {
+    padding: 20px;
+}
+
+th {
+    background-color: rgb(170, 104, 170);
+}
+
 .formulaire {
     background-color: $color-secondary;
-    padding: 10px 150px;
-    margin: 100px 300px;
+    padding: 10px 100px;
+    margin: 50px 220px;
+    border-radius: 20px;
     width: auto;
+    @include screen-size(computer-s) {
+        margin: 50px 130px;
+    }
+    @include screen-size(tablet) {
+        padding: 10px 50px;
+        margin: 30px;
+    }
 }
 
 .formulaire__fond {
     width: auto;
     margin: 50px auto;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: $color-tertiary;
     padding: 20px;
 }
 
 .selection-validation input[type=text],
-.selection-validation input[type=email] {
+.selection-validation input[type=email],
+.selection-validation input[type=tel],
+.selection-validation input[type=number] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -175,6 +220,8 @@ h2 {
 .selection-validation button {
     width: 100%;
     background-color: $color-primary;
+    color: white;
+    font-size: larger;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
@@ -183,4 +230,13 @@ h2 {
     &:hover {
         background-color: darken($color: $color-primary, $amount: 10);
     }
+}
+
+caption {
+    color: white;
+    margin: 10px;
+}
+
+caption, legend {
+    font-size: larger;
 }

@@ -8,4 +8,4 @@ const teddySchema = mongoose.Schema({
   imageUrl: { type: String, required: true }
 });
 
-module.exports = mongoose.model('Teddy', teddySchema);
+module.exports = mongoose.model('Teddy', teddySchema); // Création d'un model nommé Teddy à partie du schéma teddySchema

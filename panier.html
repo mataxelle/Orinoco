@@ -44,25 +44,62 @@
                 <h2>Votre panier</h2>
             </div>
 
-            <div class="formulaire">
-                <div>
-                    <div>
-                        <label for="quantity">Quantité</label>
-                        <input type="number" id="quantity" value="1" min="0" max="10">
-                    </div>
-                </div>
+            <div class="commande">
+                <table>
+                    <caption>Récapitulatif de votre commande</caption>
+                    <thead>
+                        <tr>
+                            <th>Produit</th>
+                            <th>Couleur</th>
+                            <th>Quantité</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Nounours Booly Holly</td>
+                            <td>Brun</td>
+                            <td>
+                                <label for="quantity"></label>
+                                <input type="number" id="quantity" value="1" min="1" max="10">
+                            </td>
+                            <td>19.99€</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
+            <div class="formulaire">
                 <div class="formulaire__fond">
-                    <form method="" action="" id="">
+                    <form method="POST" action="" id="">
                         <div class="selection-validation">
-                            <label for="nom">Nom</label>
-                            <input type="text" id="nom" placeholder="Nom">
-                            <label for="prénom">Prénom</label>
-                            <input type="text" id="prénom" placeholder="Prénom">
-                            <label for="adresse">Adresse</label>
-                            <input type="text" id="adresse" placeholder="Adresse">
-                            <label for="email">E-mail</label>
-                            <input type="email" id="email" placeholder="E-mail">
+                            <fieldset>
+                                <legend>Votre identité</legend>
+                                <label for="nom">Nom :</label>
+                                <input type="text" id="nom" placeholder="Nom" required>
+                                <label for="prénom">Prénom :</label>
+                                <input type="text" id="prénom" placeholder="Prénom" required>
+                                <label for="phone">Téléphone (optionnel) :</label>
+                                <input type="tel" id="phone">
+                                <label for="email">E-mail :</label>
+                                <input type="email" id="email" placeholder="E-mail" required>
+                            </fieldset>
+                            <fieldset>
+                                <legend>Votre adresse de livraison</legend>
+                                <label for="adresse">Adresse :</label>
+                                <input type="text" id="adresse" placeholder="Adresse" required>
+                                <label for="postal">Code postal :</label>
+                                <input type="number" id="postal" required>
+                            </fieldset>
+                            <fieldset>
+                                <legend>Information CB</legend>
+                                <label for=numero_de_carte>N° de carte</label>
+                                <input type="number" id=numero_de_carte name=numero_de_carte required>
+                                <label for=securite>Code sécurité</label>
+                                <input type="number" id=securite name=securite required>
+                                <label for=nom_porteur>Nom du porteur</label>
+                                <input type="text" id=nom_porteur name=nom_porteur placeholder="Même nom que sur la carte" required>
+                            </fieldset>
                             <button type="submit" name="validation" id="Valider">
                                 Valider
                             </button>
