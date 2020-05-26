@@ -62,17 +62,14 @@ a {
     h3 {
         font-family: 'Unna', serif;
     }
-    &__ours {
-        margin: 50px;
-        &--fond {
-            @include produit__ours--fond;
-        }
-        &--1 {
-            width: 60%;
-        }
-        &--2 {
-            @include produit__ours--2;
-        }
+}
+
+.produit__ours {
+    &--fond {
+        @include produit__ours--fond;
+    }
+    &--2 {
+        @include produit__ours--2;
     }
 }
 
@@ -80,7 +77,7 @@ a {
     margin: 85px 20px;
 }
 
-.ours__nom, .prix {
+.details ~ p { /* style ts les p qui sont après .details */
     font-size: x-large;
 }
 
@@ -138,6 +135,7 @@ button {
 
 .description {
     margin: 20px;
+    height: 300px;
 }
 
 /* Page panier début*/

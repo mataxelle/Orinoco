@@ -25,11 +25,12 @@
     border-radius: 20px;
     display: flex;
     background-color: $color-secondary;
+    margin: 20px;
 }
 
 @mixin produit__ours--2 {
     background-color: $color-tertiary;
-    width: 40%;
+    width: 50%;
     margin: 20px 20px 20px 0px;
     border-radius: 10px;
     text-align: center;
@@ -41,7 +42,7 @@
 @mixin page-produit {
     background-color: $color-secondary;
     width: 900px;
-    height: 900px;
+    height: 700px;
     margin: 100px auto;
     border-radius: 20px;
     display: flex;
@@ -55,3 +56,5 @@
     border-radius: 10px;
     text-align: center;
 }
+
+/* Page panier début*/

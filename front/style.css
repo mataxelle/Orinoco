@@ -2,6 +2,7 @@
 /*Couleur du site*/
 /*Maps avec une liste pour les media queries*/
 /* Page produit d├®but*/
+/* Page panier d├®but*/
 body {
   margin: 0px;
   width: auto; }
@@ -54,27 +55,26 @@ a {
     font-family: 'Unna', serif; }
   .produit h3 {
     font-family: 'Unna', serif; }
-  .produit__ours {
-    margin: 50px; }
-    .produit__ours--fond {
-      width: 800px;
-      height: 300px;
-      border-radius: 20px;
-      display: flex;
-      background-color: #ad670a; }
-    .produit__ours--1 {
-      width: 60%; }
-    .produit__ours--2 {
-      background-color: #fcf5d9;
-      width: 40%;
-      margin: 20px 20px 20px 0px;
-      border-radius: 10px;
-      text-align: center; }
+
+.produit__ours--fond {
+  width: 800px;
+  height: 300px;
+  border-radius: 20px;
+  display: flex;
+  background-color: #ad670a;
+  margin: 20px; }
+.produit__ours--2 {
+  background-color: #fcf5d9;
+  width: 50%;
+  margin: 20px 20px 20px 0px;
+  border-radius: 10px;
+  text-align: center; }
 
 .details {
   margin: 85px 20px; }
 
-.ours__nom, .prix {
+.details ~ p {
+  /* style ts les p qui sont apr├¿s .details */
   font-size: x-large; }
 
 P {
@@ -88,7 +88,7 @@ img {
 .page-produit__ours {
   background-color: #ad670a;
   width: 900px;
-  height: 900px;
+  height: 700px;
   margin: 100px auto;
   border-radius: 20px;
   display: flex;
@@ -128,7 +128,8 @@ button {
     background-color: #d8971f; }
 
 .description {
-  margin: 20px; }
+  margin: 20px;
+  height: 300px; }
 
 /* Page panier d├®but*/
 .panier {
