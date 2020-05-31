@@ -10,7 +10,7 @@
     <script src="https://kit.fontawesome.com/4c2b4e375e.js" crossorigin="anonymous"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Unna&family=Yellowtail&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../front/style.css">
 </head>
 
 <body>
@@ -19,7 +19,7 @@
 
         <header>
             <div class="head-section">
-                <h1><a href="../index.html">Orinoco Teddy</a></h1>
+                <h1><a href="../front/index.html">Orinoco Teddy</a></h1>
                 <div>
                     <div class="compte">
                         <div class="compte__icon">
@@ -28,45 +28,35 @@
                         <div class="compte__user">
                             <a href="#">Compte</a>
                             <div class="compte__user--style">
-                                <a href="#">Inscription</a> |
+                                <a href="#">Inscription</a>
                                 <a href="#">Connextion</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <a href="../panier.html"><i class="fas fa-shopping-basket"></i> Panier</a>
+                    <a href="../front/panier.html"><i class="fas fa-shopping-basket"></i> Panier</a>
                 </div>
             </div>
         </header>
 
         <div class="page-produit__ours">
+
             <div class="bloc1">
-                <div class="page-produit__ours--1">
-                    <a>
-                        <img src="../images/teddy_1.jpg" alt="Ours en peluche Teddy brun foncé poilu">
-                    </a>
+                <div id="page-produit__ours--1">
                 </div>
-                <div class="page-produit__ours--2">
-                    <div class="details-page">
-                        <p class="ours__nom">Nounours Booly Holly</p>
-                        <p class="prix">Prix : 19.99€</P>
-                        <form method="POST" action="" id="">
+                <div id="page-produit__ours--2">
+                    <div id="details-page">
+                        <p id="ours__nom"></p>
+                        <p id="prix"></P>
+                        <form action="#" id="form-color">
                             <div>
                                 <div class="selection" >
-                                    <label for="color">Choisissez une couleur : </label>
-                                    <select name="colors" id="color">
-                                        <option value="">--couleur--</option>
-                                        <option value="brun">Brun</option>
-                                        <option value="beige">Beige</option>
-                                        <option value="blanc-cassé">Blanc cassé</option>
-                                        <option value="noir">noir</option>
+                                    <label for="color">Choisissez votre couleur : </label>
+                                    <select name="colors" id="chooseColor">
                                     </select>
                                 </div>
-                                <div class="selection">
-                                    <button type="submit" name="panier" id="ajout-panier">
-                                        Ajouter au panier
-                                    </button>
+                                <div id="panier">
                                 </div>
                             </div>
                         </form>
@@ -75,14 +65,10 @@
             </div>
             <div class="bloc2">
                 <div>
-                    <p class="description"><strong>Description</strong> : Nounours Booly Holly est une peluche à adopter
-                        sans réfléchir. Avec son air sérieux, mais tout doux,
-                        cet adorable ours en peluche deviendra le meilleur ami de votre enfant ou peut être aussi le
-                        votre.
-                        Grâce à sa prise en main facile, votre enfant l'emportera partout avec lui.<br><br>
-                        N'hésitez pas et offrez le à votre enfant.</p>
+                    <p id="description"></p>
                 </div>
             </div>
+            
         </div>
 
         <footer>
@@ -112,8 +98,7 @@
         </footer>
     </div>
 
-    
-
+<script src="../front/produit-teddy.js"></script>
 
 </body>
 
