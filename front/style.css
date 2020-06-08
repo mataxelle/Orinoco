@@ -61,7 +61,14 @@ a {
     font-family: 'Unna', serif; }
 
 #allproducts {
-  width: auto; }
+  width: auto;
+  margin: 50px 150px; }
+  @media (max-width: 1029px) {
+    #allproducts {
+      margin: 50px 40px; } }
+  @media (max-width: 479px) {
+    #allproducts {
+      margin: 30px 10px; } }
 
 .produit__ours--fond {
   height: auto;
@@ -69,7 +76,7 @@ a {
   display: flex;
   flex-direction: column;
   background-color: #ad670a;
-  margin: 20px; }
+  margin: 20px 0px; }
 .produit__ours--1 {
   width: 58%; }
 .produit__ours--2 {
@@ -204,6 +211,7 @@ button {
   padding: 6px;
   border-radius: 4px;
   font-size: initial;
+  margin-top: 30px;
   cursor: pointer; }
   button:hover {
     background-color: #d8971f; }
@@ -221,7 +229,6 @@ h2 {
 
 .commande {
   background-color: #ad670a;
-  width: 60%;
   margin: auto;
   padding: 30px;
   border-radius: 20px; }
@@ -240,10 +247,14 @@ table {
   margin: auto; }
 
 td, th {
-  padding: 20px; }
+  padding: 20px;
+  text-align: center; }
 
 th {
   background-color: #aa68aa; }
+
+button.supprimer {
+  margin-top: 0px; }
 
 .formulaire {
   background-color: #ad670a;

@@ -33,15 +33,14 @@
                         </div>
                     </div>
                 </div>
-                <div>
-                    <a href="panier.html"><i class="fas fa-shopping-basket"></i> Panier</a>
+                <div id="menuPanier">
+                    <a href="panier.html"><i class="fas fa-shopping-basket"></i> Panier <span>0</span></a>
                 </div>
             </div>
         </header>
 
         <div class="panier">
-            <div>
-                <h2>Votre panier</h2>
+            <div class="etatPanier">
             </div>
 
             <div class="commande">
@@ -49,23 +48,23 @@
                     <caption>Récapitulatif de votre commande</caption>
                     <thead>
                         <tr>
-                            <th>Produit</th>
-                            <th>Couleur</th>
-                            <th>Quantité</th>
-                            <th>Total</th>
+                            <th id="article">Article</th>
+                            <th id="couleur">Couleur</th>
+                            <th id="quantite">Quantité</th>
+                            <th id="total">Prix unitaire</th>
+                            <th>Total de la ligne</th>
+                            <th id="supprimer"></th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="corpsPanier">
                         <tr>
-                            <td>Nounours Booly Holly</td>
-                            <td>Brun</td>
-                            <td>
-                                <label for="quantity"></label>
-                                <input type="number" id="quantity" value="1" min="1" max="10">
-                            </td>
-                            <td>19.99€</td>
                         </tr>
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5" id="totalCommande"></td>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
 
@@ -76,33 +75,32 @@
                             <fieldset>
                                 <legend>Votre identité</legend>
                                 <label for="nom">Nom :</label>
-                                <input type="text" id="nom" placeholder="Nom" required>
+                                <input type="text" id="nom" placeholder="Nom" pattern="[A-Za-z]{1,}" required>
                                 <label for="prénom">Prénom :</label>
-                                <input type="text" id="prénom" placeholder="Prénom" required>
+                                <input type="text" id="prénom" placeholder="Prénom" pattern="[A-Za-z]{1,}" required>
                                 <label for="phone">Téléphone (optionnel) :</label>
-                                <input type="tel" id="phone">
+                                <input type="tel" id="phone" pattern="[0-9]{10}" size="10" minlength="10" maxlength="10">
                                 <label for="email">E-mail :</label>
                                 <input type="email" id="email" placeholder="E-mail" required>
                             </fieldset>
                             <fieldset>
                                 <legend>Votre adresse de livraison</legend>
                                 <label for="adresse">Adresse :</label>
-                                <input type="text" id="adresse" placeholder="Adresse" required>
+                                <input type="text" id="adresse" placeholder="Adresse" pattern="[A-Za-z0-9]{1,}" required>
                                 <label for="postal">Code postal :</label>
-                                <input type="number" id="postal" required>
+                                <input type="number" id="postal" pattern="[0-9]{5}" required>
                             </fieldset>
                             <fieldset>
                                 <legend>Information CB</legend>
                                 <label for=numero_de_carte>N° de carte</label>
-                                <input type="number" id=numero_de_carte name=numero_de_carte required>
+                                <input type="number" id=numero_de_carte name=numero_de_carte pattern="[0-9]{13,16}" required>
                                 <label for=securite>Code sécurité</label>
-                                <input type="number" id=securite name=securite required>
+                                <input type="number" id=securite name=securite pattern="[0-9]{3}" required>
                                 <label for=nom_porteur>Nom du porteur</label>
-                                <input type="text" id=nom_porteur name=nom_porteur
-                                    placeholder="Même nom que sur la carte" required>
+                                <input type="text" id=nom_porteur name=nom_porteur placeholder="Même nom que sur la carte" pattern="[A-Za-z]{1,}" required>
                             </fieldset>
                             <button type="submit" name="validation" id="Valider">
-                                Valider
+                                Valider votre commande
                             </button>
                         </div>
                     </form>

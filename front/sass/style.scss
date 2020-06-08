@@ -71,6 +71,13 @@ a {
 
 #allproducts {
     width: auto;
+    margin: 50px 150px;
+    @include screen-size(tablet) {
+        margin: 50px 40px;
+    }
+    @include screen-size(mobile) {
+        margin: 30px 10px;
+    }
 }
 
 .produit__ours {
@@ -211,6 +218,7 @@ button {
     padding: 6px;
     border-radius: 4px;
     font-size: initial;
+    margin-top: 30px;
     cursor: pointer;
     &:hover {
         background-color: darken($color: $color-primary, $amount: 10);
@@ -234,7 +242,7 @@ h2 {
 
 .commande {
     background-color: $color-secondary;
-    width: 60%;
+    //width: 60%;
     margin: auto;
     padding: 30px;
     border-radius: 20px;
@@ -257,10 +265,15 @@ table {
 
 td, th {
     padding: 20px;
+    text-align: center;
 }
 
 th {
     background-color: rgb(170, 104, 170);
+}
+
+button.supprimer {
+    margin-top: 0px;
 }
 
 .formulaire {

@@ -1,15 +1,19 @@
+if (!localStorage.getItem('panier')) {  // Création du panier (appliqué sur chaque page js)
+    localStorage.setItem('panier', JSON.stringify([]))
+    
+}
 
 // Fonction fetch avec url pour effectuer une requête GET
 fetch('http://localhost:3000/api/teddies', {
     headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
 })
 
-.then(response => response.json())  // L'appel de then() déclenche l'objet Promise
+.then(response => response.json())         // L'appel de then() déclenche l'objet Promise
 .then(response => {
     console.log(response)
-    // Const pour éviter le remplacement d'éléments essentiels
+    
     const allProduits = document.getElementById('allproducts');
-    response.forEach(element => {
+    response.forEach(element => {                        //Création contenu HTML pour chaque Produit
 
         const myDiv = document.createElement('div');
         myDiv.classList.add('produit__ours--fond');
@@ -38,16 +42,15 @@ fetch('http://localhost:3000/api/teddies', {
         details.append(nom);
 
         const prix = document.createElement('p');
-        prix.textContent = element.price;
+        prix.textContent = element.price / 100 + "€";
         details.append(prix);
 
         const btn = document.createElement('button');
 
         const lien = document.createElement('a');
-        // La méthode creatTextNode() sert a créer un noeud textuel (de type : text)
-        const link = document.createTextNode("Voir le produit"); 
+        const link = document.createTextNode("Voir le produit"); // La méthode creatTextNode() sert a créer un noeud textuel (de type : text)
         lien.appendChild(link);  
-        lien.href = "../front/produit-teddy-1.html?id=" + element._id;  
+        lien.href = "../front/produit-teddy-1.html?id=" + element._id;  // lien menant vers la page du produit grâce à son _id
         btn.append(lien);
         myDivB.append(btn);
 
