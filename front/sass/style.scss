@@ -243,7 +243,7 @@ h2 {
 .commande {
     background-color: $color-secondary;
     //width: 60%;
-    margin: auto;
+    margin: 50px 50px;
     padding: 30px;
     border-radius: 20px;
     @include screen-size(tablet-s) {
@@ -334,4 +334,26 @@ caption {
 
 caption, legend {
     font-size: larger;
+}
+
+// Page confirmation début
+
+#confirmation {
+    margin: 50px 200px;
+    text-align: center;
+    font-size: x-large;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+}
+
+footer#foot-confirm {
+    //display: flex;
+    //justify-content: space-between;
+    padding: 10px;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
 }

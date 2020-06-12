@@ -16,7 +16,7 @@ async function adress(url) {  // fonction async/await
 
 
 
-adress('http://localhost:3000/api/teddies' + '/' + elementId).then(element => {
+adress('http://localhost:3000/api/teddies' + '/' + elementId).then(element => { // element désigne chaque teddy
     console.log(element)
 
     // Information produit et choix couleur
@@ -47,8 +47,6 @@ adress('http://localhost:3000/api/teddies' + '/' + elementId).then(element => {
 
     }
 
-    const formColor = document.getElementById('form-color').action = '../front/panier.html?id=' + element._id;
-
 
     // Bouton Panier
 
@@ -62,6 +60,8 @@ adress('http://localhost:3000/api/teddies' + '/' + elementId).then(element => {
     // l'objet Event fournit une multitude d'informations sur l'événement actuellement déclenché, ici il se récupère dans l'argument "ajout"
     btnPanier.addEventListener('click', function (ajout) {
 
+        ajout.preventDefault()
+
         
         
         const panierAjout = JSON.parse(localStorage.getItem('panier'));
@@ -70,20 +70,33 @@ adress('http://localhost:3000/api/teddies' + '/' + elementId).then(element => {
         let elementColorie = chooseColor.options[chooseColor.selectedIndex].value;    // ?les Const ou les Let
 
         // La méthode find() permet de récupérer dans le tableau le premier produit qui correspond au id et a la couleur sélectionnée  ? ////////
-        let elementDuPanier = panierAjout.find(teddy => teddy.elementId == elementId && teddy.elementColorie == elementColorie);
+        let elementDuPanier = panierAjout.find(teddy => {
+            return teddy.elementId == elementId && teddy.elementColorie == elementColorie
+        });
 
+        console.log(elementDuPanier);
         if (elementDuPanier == undefined) {
             let elementName = element.name;
             let elementPrice = element.price;
             let elementQuantity = 1;
             panierAjout.push({elementId, elementName, elementColorie, elementPrice, elementQuantity}); // Ajout du produit dans le localStorage
+        } else {
+            panierAjout.forEach(produit => {
+                if (produit.elementId === elementId) {
+                    produit.elementQuantity++
+                }
+                
+            });
+            console.log('ok')
         }
 
         localStorage.setItem('panier', JSON.stringify(panierAjout));
         ajout.target.innerHTML = 'Article ajouté'; // Target modifie le contenu de l'élément qui a été déclenché/cliqué
 
-        console.log(panierAjout)
+        window.location.href = 'http://127.0.0.1:5500/front/panier.html'
+
     });
+
 
     /*function onLoadCartNumbers() { // Affiche le nombre d'article dans le panier sur chaque page
 

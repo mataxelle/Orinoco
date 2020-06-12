@@ -229,7 +229,7 @@ h2 {
 
 .commande {
   background-color: #ad670a;
-  margin: auto;
+  margin: 50px 50px;
   padding: 30px;
   border-radius: 20px; }
   @media (max-width: 699px) {
@@ -308,5 +308,20 @@ caption {
 
 caption, legend {
   font-size: larger; }
+
+#confirmation {
+  margin: 50px 200px;
+  text-align: center;
+  font-size: x-large; }
+
+.page {
+  display: flex;
+  flex-direction: column; }
+
+footer#foot-confirm {
+  padding: 10px;
+  position: fixed;
+  bottom: 0px;
+  width: 100%; }
 
 /*# sourceMappingURL=style.css.map */
