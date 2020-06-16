@@ -1,6 +1,7 @@
+const apiUrl = 'http://localhost:3000/api/teddies' + '/'
+
 if (!localStorage.getItem('panier')) {
     localStorage.setItem('panier', JSON.stringify([]))
-
 }
 
 const panierAjout = JSON.parse(localStorage.getItem('panier'));
@@ -15,6 +16,7 @@ const corpsPanier = document.getElementById('corpsPanier');
 if (!panierAjout.length) {  // Si le panier est vide alors :
 
     votrePanierTitre.textContent = "Votre panier est vide !";
+    alert('Votre panier est vide');
 
 } else { // Sinon alors : 
 
@@ -32,11 +34,16 @@ if (!panierAjout.length) {  // Si le panier est vide alors :
 
 
         const sousTotal = elementPrice * elementQuantity; // total de la ligne
-        
-        let bigTotal = 0;
-        bigTotal += sousTotal;
 
-        //console.log(bigTotal);
+        let bigTotal = 0;
+
+        panierAjout.forEach(produit => {
+
+            if (produit.elementId === elementId) {
+                bigTotal += sousTotal;
+            }
+            console.log(bigTotal)
+        });
 
 
         let row = corpsPanier.insertRow(-1);
@@ -74,7 +81,7 @@ if (!panierAjout.length) {  // Si le panier est vide alors :
                 localStorage.setItem('panier', JSON.stringify(panierAjout));
                 document.location.reload()
             }
-        });   
+        });
 
         plus.addEventListener('click', function () { // Pour le bouton +
             if (result >= 1 && result < 20) {
@@ -103,7 +110,7 @@ if (!panierAjout.length) {  // Si le panier est vide alors :
         supp.textContent = "x";
         cell6.append(supp);
 
-        supp.addEventListener('click', function() {
+        supp.addEventListener('click', function () {
             corpsPanier.deleteRow(i) // supprime la ligne
             panierAjout.splice(i, 1); // La méthode splice() modifie le contenu d'un tableau en retirant et/ou en ajoutant des éléments
             localStorage.setItem('panier', JSON.stringify(panierAjout));
@@ -114,9 +121,101 @@ if (!panierAjout.length) {  // Si le panier est vide alors :
         const totalCommande = document.getElementById('totalCommande');
         totalCommande.innerHTML = `<span><strong>Le total de votre commande est de : ${bigTotal},00€ </strong></span>`;
 
-
-        const confirmationAchat = document.getElementById('confirmationAchat').action = " ../front/confirmation-de-commande.html";
-
     }
 
-}
+    // informations necessaires pour la confirmation de commande
+    let products = [];
+    let contact;
+
+    checkPanier = () => {
+        if (panierAjout > 0) {
+            panierAjout.forEach(produit => { // Chaque products dans le panier est envoyés dans l'Api
+                products.push(produit.elementId);
+            });
+            console.log("Tableau envoyé à l'API : " + products);
+            return true;
+        } else {
+            console.log("Le panier est vide");
+            return false;
+        };
+    };
+
+
+    // Partie renseignement client
+
+    //Récupération des inputs
+
+    let nomInput = document.getElementById("nom");
+    let prenomInput = document.getElementById("prenom");
+    let emailInput = document.getElementById("email");
+    let adresseInput = document.getElementById("adresse");
+    let villeInput = document.getElementById("ville");
+
+    /*confirm = () => {
+        if (fNom.value || fPrenom.value || fEmail.value || fAdresse.value || fVille.value != "") { // Si le client rempli le formulaire
+            contact = {
+                firstName: fNom,
+                lastName: fPrenom,
+                address: fAdresse,
+                city: fVille,
+                email: fEmail
+            };
+            return true;
+        };
+    };*/
+
+    const btnValider = document.querySelector('#valider');
+    console.log(btnValider)
+    btnValider.addEventListener('click', function ($event) {
+    
+
+        $event.preventDefault();
+
+        contact = {
+            firstName: nomInput.value,
+            lastName: prenomInput.value,
+            address: adresseInput.value,
+            city: villeInput.value,
+            email: emailInput.value
+        };
+
+        /*if (checkPanier() === true && confirm() === true) {  // Si panier et formulaire bon alors envoi de la commande
+            console.log('Envoi de la commande.');
+        }*/
+        submitFormData({contact: contact, products: products}); // Appel de la fonction
+    });
+
+    makeRequest = (data) => {  // Création d'un POST request a envoyé vers l'Api
+        return new Promise((resolve, reject) => {  // La fonction retournera une promesse
+            let request = new XMLHttpRequest();  // Création de l'objet xhr
+            request.open("POST", apiUrl + "order");  // Définition du type d'appel et de l'url à charger
+            request.onreadystatechange = function () {  // Déclaration des évènements : si la requête est complète et réponse reçu 
+                if (request.readyState == XMLHttpRequest.DONE) {
+                    if (request.status == 201) {
+
+                        resolve(JSON.parse(request.response));
+                    } else {
+                        reject(JSON.parse(request.response));
+                    }
+                }
+            };
+            request.setRequestHeader("Content-Type", "application/json");  //  Définition de l'appel en mode POST
+            request.send(JSON.stringify(data)); // Déclenchement de l'appel
+        })
+    };
+
+    async function submitFormData(contact) {
+        try {
+            const requestPromise = makeRequest(contact);
+            const response = await requestPromise;
+            console.log(response)
+            window.location.href = "./confirmation-de-commande.html?orderId=" + response.orderId + "&nom=" + response.contact.lastName + "&prenom=" + response.contact.firstName
+            /*responseMessage.textContent = response.message
+            thanksMessage.textContent = response.contact.firstName;
+            numeroCommande.textContent = response.elementId;*/
+        } catch (errorResponse) {
+            responseMessage.textContent = errorResponse.error;
+        }
+    };
+
+};

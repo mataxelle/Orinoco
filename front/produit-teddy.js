@@ -85,7 +85,6 @@ adress('http://localhost:3000/api/teddies' + '/' + elementId).then(element => { 
                 if (produit.elementId === elementId) {
                     produit.elementQuantity++
                 }
-                
             });
             console.log('ok')
         }
