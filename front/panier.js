@@ -4,7 +4,7 @@ if (!localStorage.getItem('panier')) {
     localStorage.setItem('panier', JSON.stringify([]))
 }
 
-const panierAjout = JSON.parse(localStorage.getItem('panier'));
+const panierAjout = JSON.parse(localStorage.getItem('panier')); // Récupération et affichage des éléments depuis le localSorage
 
 const votrePanier = document.querySelector('.etatPanier');
 const votrePanierTitre = document.createElement('h2');
@@ -16,7 +16,6 @@ const corpsPanier = document.getElementById('corpsPanier');
 if (!panierAjout.length) {  // Si le panier est vide alors :
 
     votrePanierTitre.textContent = "Votre panier est vide !";
-    alert('Votre panier est vide');
 
 } else { // Sinon alors : 
 
@@ -128,9 +127,9 @@ if (!panierAjout.length) {  // Si le panier est vide alors :
     let contact;
 
     checkPanier = () => {
-        if (panierAjout > 0) {
-            panierAjout.forEach(produit => { // Chaque products dans le panier est envoyés dans l'Api
-                products.push(produit.elementId);
+        if (panierAjout > 0) { // Si panier il y a au moins un produit
+            panierAjout.forEach(produit => { // Chaque produit est envoyés vers l'Api
+                products.push(produit.elementId); // Insertion des produits dans le tableau products envoyé à l'Api
             });
             console.log("Tableau envoyé à l'API : " + products);
             return true;
@@ -151,22 +150,10 @@ if (!panierAjout.length) {  // Si le panier est vide alors :
     let adresseInput = document.getElementById("adresse");
     let villeInput = document.getElementById("ville");
 
-    /*confirm = () => {
-        if (fNom.value || fPrenom.value || fEmail.value || fAdresse.value || fVille.value != "") { // Si le client rempli le formulaire
-            contact = {
-                firstName: fNom,
-                lastName: fPrenom,
-                address: fAdresse,
-                city: fVille,
-                email: fEmail
-            };
-            return true;
-        };
-    };*/
-
     const btnValider = document.querySelector('#valider');
-    console.log(btnValider)
-    btnValider.addEventListener('click', function ($event) {
+    console.log(btnValider);
+
+    btnValider.addEventListener('click', function ($event) {  
     
 
         $event.preventDefault();
@@ -178,21 +165,16 @@ if (!panierAjout.length) {  // Si le panier est vide alors :
             city: villeInput.value,
             email: emailInput.value
         };
-
-        /*if (checkPanier() === true && confirm() === true) {  // Si panier et formulaire bon alors envoi de la commande
-            console.log('Envoi de la commande.');
-        }*/
         submitFormData({contact: contact, products: products}); // Appel de la fonction
     });
 
     makeRequest = (data) => {  // Création d'un POST request a envoyé vers l'Api
         return new Promise((resolve, reject) => {  // La fonction retournera une promesse
             let request = new XMLHttpRequest();  // Création de l'objet xhr
-            request.open("POST", apiUrl + "order");  // Définition du type d'appel et de l'url à charger
+            request.open("POST", apiUrl + "order");  // Définition du type d'appel et de l'url à charger avec le endpoint
             request.onreadystatechange = function () {  // Déclaration des évènements : si la requête est complète et réponse reçu 
                 if (request.readyState == XMLHttpRequest.DONE) {
                     if (request.status == 201) {
-
                         resolve(JSON.parse(request.response));
                     } else {
                         reject(JSON.parse(request.response));
@@ -209,12 +191,10 @@ if (!panierAjout.length) {  // Si le panier est vide alors :
             const requestPromise = makeRequest(contact);
             const response = await requestPromise;
             console.log(response)
-            window.location.href = "./confirmation-de-commande.html?orderId=" + response.orderId + "&nom=" + response.contact.lastName + "&prenom=" + response.contact.firstName
-            /*responseMessage.textContent = response.message
-            thanksMessage.textContent = response.contact.firstName;
-            numeroCommande.textContent = response.elementId;*/
+            window.location.href = "./confirmation-de-commande.html?orderId=" + response.orderId + "&nom=" + response.contact.lastName + "&prenom=" + response.contact.firstName;
+
         } catch (errorResponse) {
-            responseMessage.textContent = errorResponse.error;
+            alert('Vous devez compléter le formulaire afin de valider votre commande !');
         }
     };
 

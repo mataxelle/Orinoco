@@ -238,14 +238,22 @@ button {
 
 h2 {
     text-align: center;
+    margin-top: 30px;
 }
 
 .commande {
     background-color: $color-secondary;
     //width: 60%;
-    margin: 50px 50px;
+    margin: 50px 220px;
     padding: 30px;
     border-radius: 20px;
+    @include screen-size(computer-s) {
+        margin: 50px 130px;
+    }
+    @include screen-size(tablet) {
+        padding: 10px 50px;
+        margin: 30px;
+    }
     @include screen-size(tablet-s) {
        width: auto;
        margin: 30px;
@@ -356,4 +364,9 @@ footer#foot-confirm {
     position: fixed;
     bottom: 0px;
     width: 100%;
+}
+
+#retourAc {
+    text-align: center;
+    font-size: x-large;
 }

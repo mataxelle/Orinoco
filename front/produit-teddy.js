@@ -19,7 +19,7 @@ async function adress(url) {  // fonction async/await
 adress('http://localhost:3000/api/teddies' + '/' + elementId).then(element => { // element désigne chaque teddy
     console.log(element)
 
-    // Information produit et choix couleur
+    // Construction de la page du produit
 
     const pageProduitOurs = document.getElementById('page-produit__ours--1');
     const nom = document.getElementById('ours__nom');
@@ -28,7 +28,7 @@ adress('http://localhost:3000/api/teddies' + '/' + elementId).then(element => { 
 
     const image = document.createElement('img');
     image.src = element.imageUrl;
-    //image.innerHTML = " alt=" element.name " ";
+    image.innerHTML = ` alt="${element.name}" src="${element.imageUrl}" `;
     pageProduitOurs.append(image);
 
     prix.innerHTML = element.price / 100 + "€";
@@ -44,7 +44,6 @@ adress('http://localhost:3000/api/teddies' + '/' + elementId).then(element => { 
         chooseColor.append(myColor);
         myColor.textContent = couleur;
         myColor.value = couleur;
-
     }
 
 
@@ -62,19 +61,17 @@ adress('http://localhost:3000/api/teddies' + '/' + elementId).then(element => { 
 
         ajout.preventDefault()
 
-        
-        
         const panierAjout = JSON.parse(localStorage.getItem('panier'));
 
         // Permet de récupérer les valeurs d'un select multiple ici les couleurs
-        let elementColorie = chooseColor.options[chooseColor.selectedIndex].value;    // ?les Const ou les Let
+        let elementColorie = chooseColor.options[chooseColor.selectedIndex].value;
 
-        // La méthode find() permet de récupérer dans le tableau le premier produit qui correspond au id et a la couleur sélectionnée  ? ////////
+        // La méthode find() permet de récupérer dans le tableau le premier produit qui correspond au id et a la couleur sélectionnée
         let elementDuPanier = panierAjout.find(teddy => {
             return teddy.elementId == elementId && teddy.elementColorie == elementColorie
         });
-
         console.log(elementDuPanier);
+
         if (elementDuPanier == undefined) {
             let elementName = element.name;
             let elementPrice = element.price;

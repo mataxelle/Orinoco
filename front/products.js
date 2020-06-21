@@ -3,7 +3,7 @@ if (!localStorage.getItem('panier')) {  // Création du panier (appliqué sur ch
     
 }
 
-// Fonction fetch avec url pour effectuer une requête GET
+// Fonction fetch avec url pour effectuer une requête GET afin de récupérer les données précises
 fetch('http://localhost:3000/api/teddies', {
     headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
 })
@@ -27,6 +27,7 @@ fetch('http://localhost:3000/api/teddies', {
 
         const img = document.createElement('img');
         img.src = element.imageUrl;
+        img.innerHTML = ` alt="${element.name}" src="${element.imageUrl}"`;
         myDivA.append(img);
 
         const myDivB = document.createElement('div');
@@ -46,9 +47,9 @@ fetch('http://localhost:3000/api/teddies', {
         details.append(prix);
 
         const btn = document.createElement('button');
-
         const lien = document.createElement('a');
         const link = document.createTextNode("Voir le produit"); // La méthode creatTextNode() sert a créer un noeud textuel (de type : text)
+
         lien.appendChild(link);  
         lien.href = "../front/produit-teddy-1.html?id=" + element._id;  // lien menant vers la page du produit grâce à son _id
         btn.append(lien);
@@ -67,28 +68,3 @@ fetch('http://localhost:3000/api/teddies', {
         allProduits.append(myDiv);
     });
 });
-
-// EXEMPLE DU HTML
-/*<section id="allproducts">
-    <div class="produit__ours--fond">
-        <div class="part1">
-            <div class="produit__ours--1">
-                <a href="produits/produit-teddy-1.html">
-                    <img src="images/teddy_1.jpg" alt="Ours en peluche Teddy brun foncé poilu">
-                </a>
-            </div>
-            <div class="produit__ours--2">
-                <div class="details">
-                    <a href="../front/produits/produit-teddy-1.html">
-                        <p class="ours__nom"> Nounours Booly Holly</p>
-                        <p class="prix">Prix : 19.99€</P>
-                        <button>Voir le produit</button>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="part2">
-            <p>Description</p>
-        </div>
-    </div>
- </section>*/

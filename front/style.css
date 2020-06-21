@@ -225,13 +225,21 @@ button {
   width: auto; }
 
 h2 {
-  text-align: center; }
+  text-align: center;
+  margin-top: 30px; }
 
 .commande {
   background-color: #ad670a;
-  margin: 50px 50px;
+  margin: 50px 220px;
   padding: 30px;
   border-radius: 20px; }
+  @media (max-width: 1269px) {
+    .commande {
+      margin: 50px 130px; } }
+  @media (max-width: 1029px) {
+    .commande {
+      padding: 10px 50px;
+      margin: 30px; } }
   @media (max-width: 699px) {
     .commande {
       width: auto;
@@ -323,5 +331,9 @@ footer#foot-confirm {
   position: fixed;
   bottom: 0px;
   width: 100%; }
+
+#retourAc {
+  text-align: center;
+  font-size: x-large; }
 
 /*# sourceMappingURL=style.css.map */
