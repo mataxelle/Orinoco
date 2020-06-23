@@ -4,6 +4,8 @@ if (!localStorage.getItem('panier')) {
     localStorage.setItem('panier', JSON.stringify([]))
 }
 
+let bigTotal;
+
 const panierAjout = JSON.parse(localStorage.getItem('panier')); // Récupération et affichage des éléments depuis le localSorage
 
 const votrePanier = document.querySelector('.etatPanier');
@@ -17,12 +19,14 @@ if (!panierAjout.length) {  // Si le panier est vide alors :
 
     votrePanierTitre.textContent = "Votre panier est vide !";
 
+    document.querySelector('.formulaire').style.display = "none";
+
 } else { // Sinon alors : 
 
     votrePanierTitre.textContent = "Finalisez votre commande !";
 
 
-    for (let i = 0; i < panierAjout.length; i++) {
+    for (let i = 0; i < panierAjout.length; i++) {  //La syntaxe panierAjout.length() permet d’obtenir le nombre de paires clé/valeur
         const articleDansPanier = panierAjout[i];
 
         const elementId = articleDansPanier.elementId;
@@ -34,7 +38,7 @@ if (!panierAjout.length) {  // Si le panier est vide alors :
 
         const sousTotal = elementPrice * elementQuantity; // total de la ligne
 
-        let bigTotal = 0;
+        bigTotal = 0;
 
         panierAjout.forEach(produit => {
 
@@ -187,11 +191,11 @@ if (!panierAjout.length) {  // Si le panier est vide alors :
     };
 
     async function submitFormData(contact) {
+        console.log(bigTotal)
         try {
             const requestPromise = makeRequest(contact);
             const response = await requestPromise;
-            console.log(response)
-            window.location.href = "./confirmation-de-commande.html?orderId=" + response.orderId + "&nom=" + response.contact.lastName + "&prenom=" + response.contact.firstName;
+            window.location.href = "./confirmation-de-commande.html?orderId=" + response.orderId + "&nom=" + response.contact.lastName + "&prenom=" + response.contact.firstName + "&bigTotal=" + bigTotal ;
 
         } catch (errorResponse) {
             alert('Vous devez compléter le formulaire afin de valider votre commande !');

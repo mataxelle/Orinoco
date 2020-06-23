@@ -1,5 +1,5 @@
-if (!localStorage.getItem('panier')) {
-    localStorage.setItem('panier', JSON.stringify([]))
+if (!localStorage.getItem('panier')) { // getItem pour Lire/Récupération une donnée
+    localStorage.setItem('panier', JSON.stringify([])) // setItem pour Enregistrer/Stocker une donnée
 }
 
 
@@ -9,7 +9,7 @@ const Params = new URLSearchParams(url.search);  // récupère params via url.se
 
 const elementId = Params.get('id'); // récupère l'id du produit
 
-async function adress(url) {  // fonction async/await
+async function adress(url) {  // fonction async/await. Le mot clef async devant une fonction va faire que la fonction en question va toujours retourner une promesse.
     let result = await fetch(url)
     return result.json()
 }
@@ -59,9 +59,9 @@ adress('http://localhost:3000/api/teddies' + '/' + elementId).then(element => { 
     // l'objet Event fournit une multitude d'informations sur l'événement actuellement déclenché, ici il se récupère dans l'argument "ajout"
     btnPanier.addEventListener('click', function (ajout) {
 
-        ajout.preventDefault()
+        ajout.preventDefault() // Fait en sorte que l’action par défaut de l'évènement ne soit pas prise en compte par le navigateur.
 
-        const panierAjout = JSON.parse(localStorage.getItem('panier'));
+        const panierAjout = JSON.parse(localStorage.getItem('panier')); // Récupération et affichage des éléments depuis le localSorage
 
         // Permet de récupérer les valeurs d'un select multiple ici les couleurs
         let elementColorie = chooseColor.options[chooseColor.selectedIndex].value;
@@ -89,7 +89,7 @@ adress('http://localhost:3000/api/teddies' + '/' + elementId).then(element => { 
         localStorage.setItem('panier', JSON.stringify(panierAjout));
         ajout.target.innerHTML = 'Article ajouté'; // Target modifie le contenu de l'élément qui a été déclenché/cliqué
 
-        window.location.href = 'http://127.0.0.1:5500/front/panier.html'
+        window.location.href = './panier.html'
 
     });
 

@@ -12,7 +12,7 @@ const responseMessage = document.createElement('span');
 const thanksMessage = document.createElement('p');
 thanksMessage.innerHTML = `Merci pour votre commande cher ${orderName} ${orderFirstName} !`;
 const totalMessage = document.createElement('p');
-totalMessage.innerHTML = `Le montant de votre commande est ${orderTotal}`;
+totalMessage.innerHTML = `Le montant de votre commande est ${orderTotal},00€`;
 const numeroCommande = document.createElement('p');
 numeroCommande.innerHTML = `Votre numéro de commande est : ${orderId} ` ;
 
