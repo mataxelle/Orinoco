@@ -146,7 +146,6 @@ img {
     border-radius: 10px;
     width: 100%;
     height: 100%;
-
 }
 
 /* Page produit début */
@@ -258,6 +257,10 @@ h2 {
        width: auto;
        margin: 30px;
     }
+    @include screen-size(mobile) {
+        margin: 3px;
+        padding: 5px;
+    }
 }
 
 table {
@@ -274,6 +277,9 @@ table {
 td, th {
     padding: 20px;
     text-align: center;
+    @include screen-size(mobile) {
+        padding: 2px;
+    }
 }
 
 th {
@@ -297,6 +303,10 @@ button.supprimer {
         padding: 10px 50px;
         margin: 30px;
     }
+    @include screen-size(mobile) {
+        padding: 10px;
+        margin: 20px 3px;
+    }
 }
 
 .formulaire__fond {
@@ -305,6 +315,10 @@ button.supprimer {
     border-radius: 10px;
     background-color: $color-tertiary;
     padding: 20px;
+    @include screen-size(mobile) {
+        margin: 5px;
+        padding: 2px;
+    }
 }
 
 .selection-validation input[type=text],
@@ -366,7 +380,7 @@ footer#foot-confirm {
     width: 100%;
 }
 
-#retourAc {
+.retourAc {
     text-align: center;
     font-size: x-large;
 }

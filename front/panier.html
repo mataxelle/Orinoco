@@ -28,7 +28,7 @@
                             <a href="#">Compte</a>
                             <div class="compte__user--style">
                                 <a href="#">Inscription</a>
-                                <a href="#">Connextion</a>
+                                <a href="#">Connex+ion</a>
                             </div>
                         </div>
                     </div>
@@ -75,9 +75,9 @@
                             <fieldset>
                                 <legend>Votre identité</legend>
                                 <label for="nom">Nom :</label>
-                                <input type="text" id="nom" placeholder="Nom" pattern="[A-Za-z]{1,}" required>
+                                <input type="text" id="nom" placeholder="Nom" pattern="[A-Za-z]{1,}" title="Ne doit contenir aucun caractères spéciaux" required>
                                 <label for="prénom">Prénom :</label>
-                                <input type="text" id="prenom" placeholder="Prenom" pattern="[A-Za-z]{1,}" required>
+                                <input type="text" id="prenom" placeholder="Prenom" pattern="[A-Za-z\D]{1,}" required>
                                 <label for="email">E-mail :</label>
                                 <input type="email" id="email" placeholder="jean.dupont@domaine.fr" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$" required>
                                 <span id="aideCourriel"></span>
@@ -87,7 +87,7 @@
                                 <label for="adresse">Adresse :</label>
                                 <input type="text" id="adresse" placeholder="Adresse" pattern="[A-Za-z0-9\s]{1,}" required>
                                 <label for="ville">Ville :</label>
-                                <input type="text" id="ville" pattern="[A-Za-z\s]{1,}"placeholder="Paris" required>
+                                <input type="text" id="ville" pattern="[A-Za-z\D\s]{1,}"placeholder="Paris" required>
                             </fieldset>
                             <button type="submit" name="validation" id="valider">
                                 Valider votre commande

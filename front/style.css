@@ -244,6 +244,10 @@ h2 {
     .commande {
       width: auto;
       margin: 30px; } }
+  @media (max-width: 479px) {
+    .commande {
+      margin: 3px;
+      padding: 5px; } }
 
 table {
   width: auto;
@@ -257,6 +261,9 @@ table {
 td, th {
   padding: 20px;
   text-align: center; }
+  @media (max-width: 479px) {
+    td, th {
+      padding: 2px; } }
 
 th {
   background-color: #aa68aa; }
@@ -277,6 +284,10 @@ button.supprimer {
     .formulaire {
       padding: 10px 50px;
       margin: 30px; } }
+  @media (max-width: 479px) {
+    .formulaire {
+      padding: 10px;
+      margin: 20px 3px; } }
 
 .formulaire__fond {
   width: auto;
@@ -284,6 +295,10 @@ button.supprimer {
   border-radius: 10px;
   background-color: #fcf5d9;
   padding: 20px; }
+  @media (max-width: 479px) {
+    .formulaire__fond {
+      margin: 5px;
+      padding: 2px; } }
 
 .selection-validation input[type=text],
 .selection-validation input[type=email],
@@ -332,7 +347,7 @@ footer#foot-confirm {
   bottom: 0px;
   width: 100%; }
 
-#retourAc {
+.retourAc {
   text-align: center;
   font-size: x-large; }
 

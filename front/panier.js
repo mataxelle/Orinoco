@@ -44,6 +44,8 @@ if (!panierAjout.length) {  // Si le panier est vide alors :
 
             if (produit.elementId === elementId) {
                 bigTotal += sousTotal;
+            } else {
+                return undefined;
             }
             console.log(bigTotal)
         });
@@ -61,7 +63,8 @@ if (!panierAjout.length) {  // Si le panier est vide alors :
         let cell3 = row.insertCell(2);
         cell3.innerHTML = `<form>
                                 <input type="button" value="-" id="moins"/>
-                                <input type="text" name="quantity" maxlength="2" max="20" size="1" id="number" />
+                                <!--<input type="text" name="quantity" maxlength="2" max="20" size="1" id="number" />-->
+                                <span id="number"></span>
                                 <input type="button" value="+" id="plus"/>
                             </form>`;
 
@@ -181,7 +184,7 @@ if (!panierAjout.length) {  // Si le panier est vide alors :
                     if (request.status == 201) {
                         resolve(JSON.parse(request.response));
                     } else {
-                        reject(JSON.parse(request.response));
+                        reject(JSON.parse(request.response)); // le serveur répondra avec une erreur si la requête a échouée
                     }
                 }
             };
@@ -198,7 +201,7 @@ if (!panierAjout.length) {  // Si le panier est vide alors :
             window.location.href = "./confirmation-de-commande.html?orderId=" + response.orderId + "&nom=" + response.contact.lastName + "&prenom=" + response.contact.firstName + "&bigTotal=" + bigTotal ;
 
         } catch (errorResponse) {
-            alert('Vous devez compléter le formulaire afin de valider votre commande !');
+            alert('Vous devez compléter le formulaire afin de valider votre commande !'); // alert si au moins un champs du formulaire n'est pas rempli
         }
     };
 

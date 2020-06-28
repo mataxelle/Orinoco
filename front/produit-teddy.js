@@ -92,19 +92,4 @@ adress('http://localhost:3000/api/teddies' + '/' + elementId).then(element => { 
         window.location.href = './panier.html'
 
     });
-
-
-    /*function onLoadCartNumbers() { // Affiche le nombre d'article dans le panier sur chaque page
-
-        const panierAjout = JSON.parse(localStorage.getItem('panier'));
-
-        if (panierAjout) {
-            document.querySelector('.menuPanier span').textContent = panierAjout;
-        }
-    }*/
-
-    //onLoadCartNumbers();
-
-
-
 });
