@@ -155,14 +155,14 @@ if (!panierAjout.length) {  // Si le panier est vide alors :
     let adresseInput = document.getElementById("adresse");
     let villeInput = document.getElementById("ville");
 
-    const btnValider = document.querySelector('#valider');
+    const btnValider = document.querySelector('#confirmationAchat');
     console.log(btnValider);
 
     ///////////////////////  Partie à revoir pour la sécurité ////////////////////
 
-    btnValider.addEventListener('click', function ($event) {
+    btnValider.addEventListener('submit', function (event) {
 
-        $event.preventDefault();
+        event.preventDefault();
 
         let motValeur = /[a-zA-Z-]/;
         let nbValeur = /[0-9]/
