@@ -92,4 +92,5 @@ adress('http://localhost:3000/api/teddies' + '/' + elementId).then(element => { 
         window.location.href = './panier.html'
 
     });
-});
+})
+.catch(error => alert("Erreur : " + error));

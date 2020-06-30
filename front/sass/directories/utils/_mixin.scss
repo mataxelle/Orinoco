@@ -17,6 +17,9 @@
     display: flex;
     justify-content: space-around;
     background-color: $color-primary;
+    @include screen-size(mobile) {
+        flex-direction: column;
+    }
 }
 
 @mixin produit__ours--fond {

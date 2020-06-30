@@ -59,12 +59,11 @@ if (!panierAjout.length) {  // Si le panier est vide alors :
         let cell2 = row.insertCell(1);
         cell2.innerHTML += elementColorie;
 
-        // Bouton quantité
+        ///// Bouton quantité ////
         let cell3 = row.insertCell(2);
-        cell3.innerHTML = `<form>
+        cell3.innerHTML = `<form id="quantite">
                                 <input type="button" value="-" id="moins"/>
-                                <!--<input type="text" name="quantity" maxlength="2" max="20" size="1" id="number" />-->
-                                <span id="number"></span>
+                                <input type="text" name="quantity" max="20" id="number" />
                                 <input type="button" value="+" id="plus"/>
                             </form>`;
 
@@ -147,10 +146,9 @@ if (!panierAjout.length) {  // Si le panier est vide alors :
     };
 
 
-    // Partie renseignement client
+    ///////////// Partie renseignement client //////////////////
 
     //Récupération des inputs
-
     let nomInput = document.getElementById("nom");
     let prenomInput = document.getElementById("prenom");
     let emailInput = document.getElementById("email");
@@ -160,19 +158,67 @@ if (!panierAjout.length) {  // Si le panier est vide alors :
     const btnValider = document.querySelector('#valider');
     console.log(btnValider);
 
-    btnValider.addEventListener('click', function ($event) {  
-    
+    ///////////////////////  Partie à revoir pour la sécurité ////////////////////
+
+    btnValider.addEventListener('click', function ($event) {
 
         $event.preventDefault();
 
-        contact = {
-            firstName: nomInput.value,
-            lastName: prenomInput.value,
-            address: adresseInput.value,
-            city: villeInput.value,
-            email: emailInput.value
+        let motValeur = /[a-zA-Z-]/;
+        let nbValeur = /[0-9]/
+        let adValeur = /[a-zA-Z0-9\s]/;
+        let caractValeur = /[!$%§^&*@(),.?":#{}|<>]/;
+        let emailValeur = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]/;
+
+        if (motValeur.test(nomInput.value) === false || caractValeur.test(nomInput.value) === true || nbValeur.test(nomInput.value) === true) {
+            alert('Attention à votre nom !')
+            console.log('Nom non valide !')
+        } else {
+            console.log('Le nom est bon !')
         };
-        submitFormData({contact: contact, products: products}); // Appel de la fonction
+
+        if (motValeur.test(prenomInput.value) === false || caractValeur.test(prenomInput.value) === true || nbValeur.test(prenomInput.value) === true) {
+            alert('Attention à votre prénom !')
+            console.log('Prénom non valide !')
+        } else {
+            console.log('Le prénom est bon !')
+        };
+
+        if (adValeur.test(adresseInput.value) === false || caractValeur.test(adresseInput.value) === true) {
+            alert('Attention à votre adresse !')
+            console.log('Adresse non valide !')
+        } else {
+            console.log('L'+'adresse est bonne !')
+        };
+
+        if (motValeur.test(villeInput.value) === false || caractValeur.test(villeInput.value) === true || nbValeur.test(villeInput.value) === true) {
+            alert('Attention à votre ville !')
+            console.log('Ville non valide !')
+        } else {
+            console.log('La ville est bonne !')
+        };
+
+        if (emailValeur.test(emailInput.value) === false) {
+            alert('Attention à votre email !')
+            console.log('Email non valide !')
+        } else {
+            console.log('L'+'email est bon !')
+        };
+
+        if ((motValeur.test(nomInput.value) === false || caractValeur.test(nomInput.value) === true || nbValeur.test(nomInput.value) === true) || (motValeur.test(prenomInput.value) === false || caractValeur.test(prenomInput.value) === true || nbValeur.test(prenomInput.value) === true) || 
+        (adValeur.test(adresseInput.value) === false || caractValeur.test(adresseInput.value) === true) || (motValeur.test(villeInput.value) === false || caractValeur.test(villeInput.value) === true || nbValeur.test(villeInput.value) === true) || emailValeur.test(emailInput.value) === false) {
+           console.log('Infos non validées !')
+
+        } else if (motValeur.test(nomInput.value) === true || motValeur.test(prenomInput.value) === true || adValeur.test(adresseInput.value) === true || motValeur.test(villeInput.value) === true || emailValeur.test(emailInput.value) === true) { 
+            contact = {
+                firstName: nomInput.value,
+                lastName: prenomInput.value,
+                address: adresseInput.value,
+                city: villeInput.value,
+                email: emailInput.value
+            };
+        };
+        submitFormData({ contact: contact, products: products }); // Appel de la fonction
     });
 
     makeRequest = (data) => {  // Création d'un POST request a envoyé vers l'Api
@@ -198,11 +244,9 @@ if (!panierAjout.length) {  // Si le panier est vide alors :
         try {
             const requestPromise = makeRequest(contact);
             const response = await requestPromise;
-            window.location.href = "./confirmation-de-commande.html?orderId=" + response.orderId + "&nom=" + response.contact.lastName + "&prenom=" + response.contact.firstName + "&bigTotal=" + bigTotal ;
-
+            window.location.href = "./confirmation-de-commande.html?orderId=" + response.orderId + "&nom=" + response.contact.lastName + "&prenom=" + response.contact.firstName + "&bigTotal=" + bigTotal;
         } catch (errorResponse) {
-            alert('Vous devez compléter le formulaire afin de valider votre commande !'); // alert si au moins un champs du formulaire n'est pas rempli
-        }
+            alert('Vous devez bien compléter le formulaire afin de valider votre commande !'); // alert si au moins un champs du formulaire n'est pas rempli
+        };
     };
-
 };

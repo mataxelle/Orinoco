@@ -19,7 +19,7 @@
         <header>
             <div class="head-section">
                 <h1><a href="index.html">Orinoco Teddy</a></h1>
-                <div>
+                <div class="comptes">
                     <div class="compte">
                         <div class="compte__icon">
                             <i class="fas fa-user-circle"></i>
@@ -28,7 +28,7 @@
                             <a href="#">Compte</a>
                             <div class="compte__user--style">
                                 <a href="#">Inscription</a>
-                                <a href="#">Connex+ion</a>
+                                <a href="#">Connexion</a>
                             </div>
                         </div>
                     </div>
@@ -75,23 +75,21 @@
                             <fieldset>
                                 <legend>Votre identité</legend>
                                 <label for="nom">Nom :</label>
-                                <input type="text" id="nom" placeholder="Nom" pattern="[A-Za-z]{1,}" title="Ne doit contenir aucun caractères spéciaux" required>
+                                <input type="text" id="nom" placeholder="Nom" title="Ne doit contenir ni caractères spéciaux, ni chiffres." required />
                                 <label for="prénom">Prénom :</label>
-                                <input type="text" id="prenom" placeholder="Prenom" pattern="[A-Za-z\D]{1,}" required>
+                                <input type="text" id="prenom" placeholder="Prenom" title="Ne doit contenir ni caractères spéciaux, ni chiffres." required />
                                 <label for="email">E-mail :</label>
-                                <input type="email" id="email" placeholder="jean.dupont@domaine.fr" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$" required>
+                                <input type="email" id="email" placeholder="jean.dupont@domaine.fr" required />
                                 <span id="aideCourriel"></span>
                             </fieldset>
                             <fieldset>
                                 <legend>Votre adresse de livraison</legend>
                                 <label for="adresse">Adresse :</label>
-                                <input type="text" id="adresse" placeholder="Adresse" pattern="[A-Za-z0-9\s]{1,}" required>
+                                <input type="text" id="adresse" placeholder="Adresse" title="Ne doit contenir aucun caractères spéciaux" required />
                                 <label for="ville">Ville :</label>
-                                <input type="text" id="ville" pattern="[A-Za-z\D\s]{1,}"placeholder="Paris" required>
+                                <input type="text" id="ville" title="Ne doit contenir ni caractères spéciaux, ni chiffres" placeholder="Paris" required />
                             </fieldset>
-                            <button type="submit" name="validation" id="valider">
-                                Valider votre commande
-                            </button>
+                            <input type="submit" name="validation" id="valider" value="Valider votre commande" />
                         </div>
                     </form>
                 </div>

@@ -67,4 +67,5 @@ fetch('http://localhost:3000/api/teddies', {
 
         allProduits.append(myDiv);
     });
-});
+})
+.catch(error => alert("Erreur : " + error));

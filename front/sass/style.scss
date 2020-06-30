@@ -18,6 +18,12 @@ header {
     }
 }
 
+.comptes {
+    @include screen-size(mobile) {
+        text-align: center;
+    }
+}
+
 .compte {
     display: flex;
     align-items: flex-end;
@@ -43,6 +49,10 @@ footer {
     @include foot;
     .pied {
         display: block;
+        p {
+            font-weight: bold;
+            margin-left: 15px;
+        }
     }
 }
 
@@ -268,6 +278,9 @@ table {
     background-color: $color-tertiary;
     border-collapse: collapse;
     border-radius: 10px;
+    @include screen-size(mobile) {
+        border-radius: 20px;
+    }
 }
 
 table {
@@ -278,7 +291,7 @@ td, th {
     padding: 20px;
     text-align: center;
     @include screen-size(mobile) {
-        padding: 2px;
+        padding: 10px 0px;
     }
 }
 
@@ -286,8 +299,21 @@ th {
     background-color: rgb(170, 104, 170);
 }
 
+#moins, #plus {
+    border: none;
+    width: 15px;
+}
+
+#number {
+    border: none;
+    width: 15px;
+    background: none;
+    text-align: center;
+}
+
 button.supprimer {
     margin-top: 0px;
+    font-size: xx-small;
 }
 
 .formulaire {
@@ -334,7 +360,7 @@ button.supprimer {
     box-sizing: border-box;
 }
   
-.selection-validation button {
+.selection-validation #valider {
     width: 100%;
     background-color: $color-primary;
     color: white;
@@ -364,6 +390,10 @@ caption, legend {
     margin: 50px 200px;
     text-align: center;
     font-size: x-large;
+    @include screen-size(mobile) {
+        margin: 50px 20px;
+        font-size: medium;
+    }
 }
 
 .page {
@@ -372,15 +402,19 @@ caption, legend {
 }
 
 footer#foot-confirm {
-    //display: flex;
-    //justify-content: space-between;
     padding: 10px;
     position: fixed;
     bottom: 0px;
     width: 100%;
+    @include screen-size(mobile) {
+        position: unset;
+    }
 }
 
 .retourAc {
     text-align: center;
     font-size: x-large;
+    @include screen-size(mobile) {
+        font-size: medium;
+    }
 }

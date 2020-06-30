@@ -19,6 +19,10 @@ header {
     align-items: center;
     padding: 30px; }
 
+@media (max-width: 479px) {
+  .comptes {
+    text-align: center; } }
+
 .compte {
   display: flex;
   align-items: flex-end; }
@@ -39,8 +43,14 @@ footer {
   display: flex;
   justify-content: space-around;
   background-color: #e4ad46; }
+  @media (max-width: 479px) {
+    footer {
+      flex-direction: column; } }
   footer .pied {
     display: block; }
+    footer .pied p {
+      font-weight: bold;
+      margin-left: 15px; }
 
 a {
   font-family: 'Unna', serif;
@@ -254,6 +264,9 @@ table {
   background-color: #fcf5d9;
   border-collapse: collapse;
   border-radius: 10px; }
+  @media (max-width: 479px) {
+    table {
+      border-radius: 20px; } }
 
 table {
   margin: auto; }
@@ -263,13 +276,24 @@ td, th {
   text-align: center; }
   @media (max-width: 479px) {
     td, th {
-      padding: 2px; } }
+      padding: 10px 0px; } }
 
 th {
   background-color: #aa68aa; }
 
+#moins, #plus {
+  border: none;
+  width: 15px; }
+
+#number {
+  border: none;
+  width: 15px;
+  background: none;
+  text-align: center; }
+
 button.supprimer {
-  margin-top: 0px; }
+  margin-top: 0px;
+  font-size: xx-small; }
 
 .formulaire {
   background-color: #ad670a;
@@ -312,7 +336,7 @@ button.supprimer {
   border-radius: 4px;
   box-sizing: border-box; }
 
-.selection-validation button {
+.selection-validation #valider {
   width: 100%;
   background-color: #e4ad46;
   color: white;
@@ -322,7 +346,7 @@ button.supprimer {
   border: none;
   border-radius: 4px;
   cursor: pointer; }
-  .selection-validation button:hover {
+  .selection-validation #valider:hover {
     background-color: #d8971f; }
 
 caption {
@@ -336,6 +360,10 @@ caption, legend {
   margin: 50px 200px;
   text-align: center;
   font-size: x-large; }
+  @media (max-width: 479px) {
+    #confirmation {
+      margin: 50px 20px;
+      font-size: medium; } }
 
 .page {
   display: flex;
@@ -346,9 +374,15 @@ footer#foot-confirm {
   position: fixed;
   bottom: 0px;
   width: 100%; }
+  @media (max-width: 479px) {
+    footer#foot-confirm {
+      position: unset; } }
 
 .retourAc {
   text-align: center;
   font-size: x-large; }
+  @media (max-width: 479px) {
+    .retourAc {
+      font-size: medium; } }
 
 /*# sourceMappingURL=style.css.map */
