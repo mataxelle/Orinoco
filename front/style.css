@@ -281,11 +281,11 @@ td, th {
 th {
   background-color: #aa68aa; }
 
-#moins, #plus {
+#btn_moins, #btn_plus {
   border: none;
   width: 15px; }
 
-#number {
+#btn_number {
   border: none;
   width: 15px;
   background: none;
