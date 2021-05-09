@@ -4,7 +4,7 @@ if (!localStorage.getItem('panier')) {
     localStorage.setItem('panier', JSON.stringify([]))
 }
 
-let bigTotal;
+let bigTotal = 0; //bloc avec const
 
 const panierAjout = JSON.parse(localStorage.getItem('panier')); // Récupération et affichage des éléments depuis le localSorage
 
@@ -38,46 +38,41 @@ if (!panierAjout.length) {  // Si le panier est vide alors :
 
         const sousTotal = elementPrice * elementQuantity; // total de la ligne
 
-        bigTotal = 0;
-
-        panierAjout.forEach(produit => {
-
-            if (produit.elementId === elementId) {
-                bigTotal += sousTotal;
-            } else {
-                return undefined;
-            }
-            console.log(bigTotal)
-        });
+        bigTotal = bigTotal + sousTotal;
 
 
         let row = corpsPanier.insertRow(-1);
 
         let cell1 = row.insertCell(0);
-        cell1.innerHTML += elementName;
+        cell1.innerHTML = `<a href="../front/produit-teddy-1.html?id=${elementId}">${elementName}</a>`;
 
         let cell2 = row.insertCell(1);
         cell2.innerHTML += elementColorie;
 
         ///// Bouton quantité ////
         let cell3 = row.insertCell(2);
+
         cell3.innerHTML = `<form id="quantite">
-                                <input type="button" value="-" id="moins"/>
-                                <input type="text" name="quantity" max="20" id="number" />
-                                <input type="button" value="+" id="plus"/>
-                            </form>`;
+                                <input type="button" value="-" id="btn_moins"/>
+                                <input type="text" name="quantity" max="20" id="btn_number" value="${elementQuantity}"/>
+                                <input type="button" value="+" id="btn_plus"/>
+                            </form>`
+            ;
+        ;
+        const quantityNumber = document.querySelectorAll('#btn_number');
+        const plus = document.querySelectorAll('#btn_plus');
+        const moins = document.querySelectorAll('#btn_moins');
 
-        const numb = document.getElementById('number');
-        const plus = document.getElementById('plus');
-        const moins = document.getElementById('moins');
-        numb.value = elementQuantity;
 
-        result = parseInt(numb.value, 10); // parsInt(string,base) converti une chaine de caractère vers un entier
+        quantityNumber.value = elementQuantity; //utile
+        let quantite = quantityNumber.value;
+        //result = parseInt(quantityNumber.value, 10); // parsInt(string,base) converti une chaine de caractère vers un entier
 
-        moins.addEventListener('click', function () {  // Pour le bouton -
-            if (result > 1 && result <= 20) {
-                result--;
-                document.getElementById('number').value = result;
+        moins[i].addEventListener('click', function () {  // Pour le bouton -
+
+            if (quantite > 1 && quantite <= 20) {
+                quantite--;
+                //quantityNumber.value = result;
                 panierAjout.forEach(produit => {
                     if (produit.elementId === elementId) {
                         produit.elementQuantity--
@@ -88,10 +83,11 @@ if (!panierAjout.length) {  // Si le panier est vide alors :
             }
         });
 
-        plus.addEventListener('click', function () { // Pour le bouton +
-            if (result >= 1 && result < 20) {
-                result++;
-                document.getElementById('number').value = result;
+        plus[i].addEventListener('click', function () { // Pour le bouton +
+
+            if (quantite >= 1 && quantite < 20) {
+                quantite++;
+                //quantityNumber.value = result;
                 panierAjout.forEach(produit => {
                     if (produit.elementId === elementId) {
                         produit.elementQuantity++
@@ -188,7 +184,7 @@ if (!panierAjout.length) {  // Si le panier est vide alors :
             alert('Attention à votre adresse !')
             console.log('Adresse non valide !')
         } else {
-            console.log('L'+'adresse est bonne !')
+            console.log('L' + 'adresse est bonne !')
         };
 
         if (motValeur.test(villeInput.value) === false || caractValeur.test(villeInput.value) === true || nbValeur.test(villeInput.value) === true) {
@@ -202,14 +198,14 @@ if (!panierAjout.length) {  // Si le panier est vide alors :
             alert('Attention à votre email !')
             console.log('Email non valide !')
         } else {
-            console.log('L'+'email est bon !')
+            console.log('L' + 'email est bon !')
         };
 
-        if ((motValeur.test(nomInput.value) === false || caractValeur.test(nomInput.value) === true || nbValeur.test(nomInput.value) === true) || (motValeur.test(prenomInput.value) === false || caractValeur.test(prenomInput.value) === true || nbValeur.test(prenomInput.value) === true) || 
-        (adValeur.test(adresseInput.value) === false || caractValeur.test(adresseInput.value) === true) || (motValeur.test(villeInput.value) === false || caractValeur.test(villeInput.value) === true || nbValeur.test(villeInput.value) === true) || emailValeur.test(emailInput.value) === false) {
-           console.log('Infos non validées !')
+        if ((motValeur.test(nomInput.value) === false || caractValeur.test(nomInput.value) === true || nbValeur.test(nomInput.value) === true) || (motValeur.test(prenomInput.value) === false || caractValeur.test(prenomInput.value) === true || nbValeur.test(prenomInput.value) === true) ||
+            (adValeur.test(adresseInput.value) === false || caractValeur.test(adresseInput.value) === true) || (motValeur.test(villeInput.value) === false || caractValeur.test(villeInput.value) === true || nbValeur.test(villeInput.value) === true) || emailValeur.test(emailInput.value) === false) {
+            console.log('Infos non validées !')
 
-        } else if (motValeur.test(nomInput.value) === true || motValeur.test(prenomInput.value) === true || adValeur.test(adresseInput.value) === true || motValeur.test(villeInput.value) === true || emailValeur.test(emailInput.value) === true) { 
+        } else if (motValeur.test(nomInput.value) === true || motValeur.test(prenomInput.value) === true || adValeur.test(adresseInput.value) === true || motValeur.test(villeInput.value) === true || emailValeur.test(emailInput.value) === true) {
             contact = {
                 firstName: nomInput.value,
                 lastName: prenomInput.value,
