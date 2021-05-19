@@ -37,7 +37,7 @@ if (!panierAjout.length) {  // Si le panier est vide alors :
 
 
         const sousTotal = elementPrice * elementQuantity; // total de la ligne
-
+        
         bigTotal = bigTotal + sousTotal;
 
 
@@ -57,8 +57,8 @@ if (!panierAjout.length) {  // Si le panier est vide alors :
                                 <input type="text" name="quantity" max="20" id="btn_number" value="${elementQuantity}"/>
                                 <input type="button" value="+" id="btn_plus"/>
                             </form>`
-            ;
         ;
+
         const quantityNumber = document.querySelectorAll('#btn_number');
         const plus = document.querySelectorAll('#btn_plus');
         const moins = document.querySelectorAll('#btn_moins');
@@ -66,15 +66,13 @@ if (!panierAjout.length) {  // Si le panier est vide alors :
 
         quantityNumber.value = elementQuantity; //utile
         let quantite = quantityNumber.value;
-        //result = parseInt(quantityNumber.value, 10); // parsInt(string,base) converti une chaine de caractère vers un entier
 
         moins[i].addEventListener('click', function () {  // Pour le bouton -
 
             if (quantite > 1 && quantite <= 20) {
                 quantite--;
-                //quantityNumber.value = result;
                 panierAjout.forEach(produit => {
-                    if (produit.elementId === elementId) {
+                    if (produit.elementId === elementId && produit.elementColorie === elementColorie) {
                         produit.elementQuantity--
                     }
                 });
@@ -87,9 +85,8 @@ if (!panierAjout.length) {  // Si le panier est vide alors :
 
             if (quantite >= 1 && quantite < 20) {
                 quantite++;
-                //quantityNumber.value = result;
                 panierAjout.forEach(produit => {
-                    if (produit.elementId === elementId) {
+                    if (produit.elementId === elementId && produit.elementColorie === elementColorie) {
                         produit.elementQuantity++
                     }
                 });
