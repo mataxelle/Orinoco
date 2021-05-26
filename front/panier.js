@@ -112,7 +112,7 @@ if (!panierAjout.length) {  // Si le panier est vide alors :
             corpsPanier.deleteRow(i) // supprime la ligne
             panierAjout.splice(i, 1); // La méthode splice() modifie le contenu d'un tableau en retirant et/ou en ajoutant des éléments
             localStorage.setItem('panier', JSON.stringify(panierAjout));
-            document.location.reload(true) // La méthode location.reload recharge la page, équivalent au clic sur le bouton Actualiser la page du navigateur
+            document.location.reload() // La méthode location.reload recharge la page, équivalent au clic sur le bouton Actualiser la page du navigateur
         });
 
 
