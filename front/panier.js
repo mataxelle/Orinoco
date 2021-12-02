@@ -108,6 +108,7 @@ if (!panierAjout.length) {  // Si le panier est vide alors :
         supp.textContent = "x";
         cell6.append(supp);
 
+        console.log(corpsPanier);
         supp.addEventListener('click', function () {
             corpsPanier.deleteRow(i) // supprime la ligne
             panierAjout.splice(i, 1); // La méthode splice() modifie le contenu d'un tableau en retirant et/ou en ajoutant des éléments

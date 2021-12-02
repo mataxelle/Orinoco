@@ -44,7 +44,7 @@ if (!panierAjout.length) {  // Si le panier est vide alors :
         let row = corpsPanier.insertRow(-1);
 
         let cell1 = row.insertCell(0);
-        cell1.innerHTML += elementName;
+        cell1.innerHTML = `<a href="../front/produit-teddy-1.html?id=${elementId}">${elementName}</a>`;
 
         let cell2 = row.insertCell(1);
         cell2.innerHTML += elementColorie;
@@ -54,7 +54,7 @@ if (!panierAjout.length) {  // Si le panier est vide alors :
 
         cell3.innerHTML = `<form id="quantite">
                                 <input type="button" value="-" id="btn_moins"/>
-                                <input type="text" name="quantity" max="20" id="btn_number" value="1"/>
+                                <input type="text" name="quantity" max="20" id="btn_number" value="${elementQuantity}"/>
                                 <input type="button" value="+" id="btn_plus"/>
                             </form>`
             ;
