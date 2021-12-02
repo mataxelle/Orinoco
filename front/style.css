@@ -18,6 +18,12 @@ header {
     justify-content: space-around;
     align-items: center;
     padding: 30px; }
+    @media (max-width: 479px) {
+      header .head-section {
+        padding: 15px; } }
+  @media (max-width: 479px) {
+    header .fa-shopping-basket {
+      font-size: 25px; } }
 
 i {
   font-size: 30px; }
@@ -267,11 +273,11 @@ td, th {
 th {
   background-color: #aa68aa; }
 
-#moins, #plus {
+#btn_moins, #btn_plus {
   border: none;
   width: 15px; }
 
-#number {
+#btn_number {
   border: none;
   width: 15px;
   background: none;
@@ -335,12 +341,15 @@ button.supprimer {
   .selection-validation #valider:hover {
     background-color: #d8971f; }
 
+caption, legend {
+  font-size: larger; }
+
 caption {
   color: white;
   margin: 10px; }
-
-caption, legend {
-  font-size: larger; }
+  @media (max-width: 479px) {
+    caption {
+      font-size: medium; } }
 
 #confirmation {
   margin: 50px 200px;

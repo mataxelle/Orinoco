@@ -15,6 +15,11 @@ header {
     background-color: $color-primary;
     .head-section {
         @include head-section;
+    };
+    @include screen-size(mobile) {
+        .fa-shopping-basket {
+            font-size: 25px;
+        }
     }
 }
 
@@ -280,12 +285,12 @@ th {
     background-color: rgb(170, 104, 170);
 }
 
-#moins, #plus {
+#btn_moins, #btn_plus {
     border: none;
     width: 15px;
 }
 
-#number {
+#btn_number {
     border: none;
     width: 15px;
     background: none;
@@ -356,13 +361,16 @@ button.supprimer {
     }
 }
 
+caption, legend {
+    font-size: larger;
+}
+
 caption {
     color: white;
     margin: 10px;
-}
-
-caption, legend {
-    font-size: larger;
+    @include screen-size(mobile) {
+        font-size: medium;
+    }
 }
 
 // Page confirmation début

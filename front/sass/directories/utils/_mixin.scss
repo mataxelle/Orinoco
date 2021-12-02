@@ -11,6 +11,9 @@
     justify-content: space-around;
     align-items: center;
     padding: 30px;
+    @include screen-size(mobile) {
+        padding: 15px;
+    }
 }
 
 @mixin foot {
