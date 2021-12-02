@@ -18,25 +18,6 @@ header {
     }
 }
 
-.comptes {
-    @include screen-size(mobile) {
-        text-align: center;
-    }
-}
-
-.compte {
-    display: flex;
-    align-items: flex-end;
-    @include screen-size(mobile) {
-        flex-direction: column;
-        align-items: center;
-    }
-    &__icon, &__user {
-        margin: 10px;
-    }
-
-}
-
 i {
     font-size: 30px;
 }

@@ -19,20 +19,6 @@ header {
     align-items: center;
     padding: 30px; }
 
-@media (max-width: 479px) {
-  .comptes {
-    text-align: center; } }
-
-.compte {
-  display: flex;
-  align-items: flex-end; }
-  @media (max-width: 479px) {
-    .compte {
-      flex-direction: column;
-      align-items: center; } }
-  .compte__icon, .compte__user {
-    margin: 10px; }
-
 i {
   font-size: 30px; }
 
@@ -281,11 +267,11 @@ td, th {
 th {
   background-color: #aa68aa; }
 
-#btn_moins, #btn_plus {
+#moins, #plus {
   border: none;
   width: 15px; }
 
-#btn_number {
+#number {
   border: none;
   width: 15px;
   background: none;
