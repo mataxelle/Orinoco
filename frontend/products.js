@@ -51,7 +51,7 @@ fetch('http://localhost:3000/api/teddies', {
         const link = document.createTextNode("Voir le produit"); // La méthode creatTextNode() sert a créer un noeud textuel (de type : text)
 
         lien.appendChild(link);  
-        lien.href = "../front/produit-teddy-1.html?id=" + element._id;  // lien menant vers la page du produit grâce à son _id
+        lien.href = "../frontend/produit-teddy-1.html?id=" + element._id;  // lien menant vers la page du produit grâce à son _id
         btn.append(lien);
         myDivB.append(btn);
 

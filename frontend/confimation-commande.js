@@ -17,6 +17,7 @@ const numeroCommande = document.createElement('p');
 numeroCommande.innerHTML = `Votre numéro de commande est : ${orderId} ` ;
 
 confirmation.append(responseMessage);
+console.log(responseMessage);
 confirmation.append(thanksMessage);
 confirmation.append(totalMessage);
 confirmation.append(numeroCommande);

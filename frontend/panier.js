@@ -44,7 +44,7 @@ if (!panierAjout.length) {  // Si le panier est vide alors :
         let row = corpsPanier.insertRow(-1);
 
         let cell1 = row.insertCell(0);
-        cell1.innerHTML = `<a href="../front/produit-teddy-1.html?id=${elementId}">${elementName}</a>`;
+        cell1.innerHTML = `<a href="../frontend/produit-teddy-1.html?id=${elementId}">${elementName}</a>`;
 
         let cell2 = row.insertCell(1);
         cell2.innerHTML += elementColorie;
